@@ -10,7 +10,11 @@ package com.mycompany.poo;
 public class Main {
 
     public static void main(String[] args) {
-       
-        
+        Auto mercedez = new Auto();
+        mercedez.fabricante = "Mercedez";
+        mercedez.modelo = "G63";
+        mercedez.color = "Blanco";
+        mercedez.cilindro = 8;
+        mercedez.detalle();
     }
 }
