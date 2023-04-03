@@ -16,8 +16,18 @@ public class Auto {
     private String color;
     private double cilindro;
     private int capacidadGas = 40;
-    //getter and setter
+    //constructores de la clase.
+    public Auto() {
+    }
 
+    public Auto(String fabricante, String modelo) {
+        this.fabricante = fabricante;
+        this.modelo = modelo;
+    }
+    
+    
+    
+    //getter and setter
     public String getFabricante() {
         return fabricante;
     }
