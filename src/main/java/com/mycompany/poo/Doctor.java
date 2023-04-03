@@ -9,5 +9,14 @@ package com.mycompany.poo;
  * @author luisjc
  */
 public class Doctor {
+    //atributos
+    int id;
+    String nombre;
+    String especialidad;
     
+    
+    //comportamientos (o metodos)
+    public void showname(){
+        System.out.println(nombre);
+    }
 }

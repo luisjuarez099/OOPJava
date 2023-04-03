@@ -3,7 +3,6 @@
  */
 
 package com.mycompany.poo;
-import java.util.Scanner;
 /**
  *
  * @author luisjc
@@ -11,10 +10,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner leer=new Scanner(System.in);
-        System.out.println("Digita nombre: ");
-        String nombre=leer.next();
-        
-        System.out.println("Hello World!"+nombre);
+        Doctor dr=new Doctor(); //Instancia de la clase
+        dr.nombre="Jose Fernandez Martinez";
+        dr.showname();
     }
 }
