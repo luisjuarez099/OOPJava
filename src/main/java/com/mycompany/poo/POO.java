@@ -3,7 +3,7 @@
  */
 
 package com.mycompany.poo;
-
+import java.util.Scanner;
 /**
  *
  * @author luisjc
@@ -11,7 +11,10 @@ package com.mycompany.poo;
 public class POO {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Scanner leer=new Scanner(System.in);
+        System.out.println("Digita nombre: ");
+        String nombre=leer.next();
         
+        System.out.println("Hello World!"+nombre);
     }
 }
