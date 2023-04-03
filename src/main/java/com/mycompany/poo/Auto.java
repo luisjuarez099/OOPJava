@@ -11,19 +11,60 @@ package com.mycompany.poo;
 public class Auto {
 
     //Atributos de la clase Auto
-    String fabricante;
-    String modelo;
-    String color;
-    double cilindro;
-    int capacidadGas = 40;
+    private String fabricante;
+    private String modelo;
+    private String color;
+    private double cilindro;
+    private int capacidadGas = 40;
+    //getter and setter
 
+    public String getFabricante() {
+        return fabricante;
+    }
+
+    public void setFabricante(String fabricante) {
+        this.fabricante = fabricante;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public double getCilindro() {
+        return cilindro;
+    }
+
+    public void setCilindro(double cilindro) {
+        this.cilindro = cilindro;
+    }
+
+    public int getCapacidadGas() {
+        return capacidadGas;
+    }
+
+    public void setCapacidadGas(int capacidadGas) {
+        this.capacidadGas = capacidadGas;
+    }
+    
     //Metodos de la clase Auto
     public String detalle() {
 
-        return this.fabricante + "\n"
+        return this.getFabricante() + "\n"
                 + this.modelo + "\n"
                 + this.color + "\n"
-                + this.cilindro;
+                + this.getCilindro();
 
     }
 
@@ -49,6 +90,10 @@ public class Auto {
     public float calcularConsumo(int km, int porcentajedegas) {
         return km / (this.capacidadGas * (porcentajedegas/100f));
     }
+    
+    
+    
+    
 }
 
 //this hace referencia un atributo de la clase de manera explicita. 
