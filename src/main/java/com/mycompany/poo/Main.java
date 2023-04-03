@@ -8,7 +8,7 @@ import java.util.Scanner;
  *
  * @author luisjc
  */
-public class POO {
+public class Main {
 
     public static void main(String[] args) {
         Scanner leer=new Scanner(System.in);
