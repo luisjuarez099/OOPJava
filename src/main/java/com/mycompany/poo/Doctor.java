@@ -10,13 +10,16 @@ package com.mycompany.poo;
  */
 public class Doctor {
     //atributos
-    int id;
-    String nombre;
-    String especialidad;
+    
+    
+    //constructor
+
+    
+   
     
     
     //comportamientos (o metodos)
-    public void showname(){
-        System.out.println(nombre);
-    }
+   
+    
+    
 }

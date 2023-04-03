@@ -10,8 +10,9 @@ package com.mycompany.poo;
 public class Main {
 
     public static void main(String[] args) {
-        Doctor dr=new Doctor(); //Instancia de la clase
-        dr.nombre="Jose Fernandez Martinez";
-        dr.showname();
+       
+        
+        
+        
     }
 }
