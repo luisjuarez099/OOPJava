@@ -30,6 +30,7 @@ public class Auto {
     private static int ultimo;
     private static int capacidadGasstatic = 10;
     private static Color colorpatente;
+    private TipoAuto tipo;
 
     public static final Integer VELOCIDADMAXCARRETERA = 120;
     public static final Integer VELOCIDAD_MAX_CIUDAD = 80;
@@ -129,6 +130,14 @@ public class Auto {
         Auto.capacidadGasstatic = capacidadGasstatic;
     }
 
+    public TipoAuto getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoAuto tipo) {
+        this.tipo = tipo;
+    }
+
     //************************Metodos de la clase Auto
     public String detalle() {
 
@@ -137,6 +146,7 @@ public class Auto {
                 + this.modelo + "\n"
                 + this.color + "\n"
                 + colorpatente + "\n"
+                + this.getTipo().getDescripcion() + "\n"
                 + this.getCilindro();
 
     }

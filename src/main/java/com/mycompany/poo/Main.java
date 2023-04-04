@@ -13,6 +13,7 @@ public class Main {
         //primer objeto
         Auto.setColorpatente(Color.AZUL);//se aplica en todos los metodos.
         Auto mercedez = new Auto("Mercedez", "G63",Color.AZUL);
+        mercedez.setTipo(TipoAuto.SPORT);
         mercedez.setColor(Color.AZUL);
         mercedez.setModelo("G63");
         mercedez.setCilindro(51);
@@ -27,6 +28,7 @@ public class Main {
         System.out.println("");
         //segundo objeto
         Auto mazda=new Auto("Mazda", "CX-5", Color.ROJO);
+        mazda.setTipo(TipoAuto.SPORT);
         mazda.setColor(Color.ROJO);
         mazda.setCilindro(66);
         System.out.println("DETALLE MAZDA"+mazda.detalle());
