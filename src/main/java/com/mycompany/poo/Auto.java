@@ -10,13 +10,14 @@ package com.mycompany.poo;
  */
 public class Auto {
 
-    //Atributos de la clase Auto
+    //**********************Atributos de la clase Auto
     private String fabricante;
     private String modelo;
     private String color;
     private double cilindro;
     private int capacidadGas = 40;
-    //constructores de la clase.
+
+    //*****************constructores de la clase.
     public Auto() {
     }
 
@@ -24,10 +25,23 @@ public class Auto {
         this.fabricante = fabricante;
         this.modelo = modelo;
     }
-    
-    
-    
-    //getter and setter
+
+    public Auto(String fabricante, String modelo, String color) {
+        this(fabricante, modelo);
+        this.color = color;
+    }
+
+    public Auto(String fabricante, String modelo, String color, double cilindro) {
+        this(fabricante, modelo, color);
+        this.cilindro = cilindro;
+    }
+
+    public Auto(String fabricante, String modelo, String color, double cilindro, int capacidadGas) {
+        this(fabricante, modelo, color, cilindro);
+        this.capacidadGas = capacidadGas;
+    }
+
+    //*****************************getter and setter
     public String getFabricante() {
         return fabricante;
     }
@@ -67,8 +81,8 @@ public class Auto {
     public void setCapacidadGas(int capacidadGas) {
         this.capacidadGas = capacidadGas;
     }
-    
-    //Metodos de la clase Auto
+
+    //************************Metodos de la clase Auto
     public String detalle() {
 
         return this.getFabricante() + "\n"
@@ -97,11 +111,23 @@ public class Auto {
     public float calcularConsumo(int km, float porcentajedegas) {
         return km / (porcentajedegas * this.capacidadGas);
     }
+
     public float calcularConsumo(int km, int porcentajedegas) {
-        return km / (this.capacidadGas * (porcentajedegas/100f));
+        return km / (this.capacidadGas * (porcentajedegas / 100f));
     }
-    
-    
+
+    //**************************Sobreescritura de metodos
+    @Override //indica al compilador que estamos sobreescribiendo un metodo de la clase padre
+    public boolean equals(Object obj) {
+        if(!(obj instanceof Auto)){
+            return false;
+        }
+        if(this == obj){
+            return true;
+        }
+        Auto a = (Auto) obj;
+        return (this.getFabricante() != null && this.getFabricante().equalsIgnoreCase(a.getFabricante())); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
     
     
 }

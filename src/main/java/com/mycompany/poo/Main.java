@@ -24,7 +24,7 @@ public class Main {
         
         System.out.println("");
         //segundo objeto
-        Auto mazda=new Auto("Mazda", "MX-5");
+        Auto mazda=new Auto("Mercedez", "G63");
         mazda.setColor("Rojo");
         mazda.setCilindro(66);
         System.out.println(mazda.detalle());
@@ -34,6 +34,9 @@ public class Main {
         System.out.println(mazda.calcularConsumo(150, 0.7f));
         System.out.println(mazda.calcularConsumo(150, 70));
         
-
+        //comparacion equals
+        System.out.println(mercedez ==  mazda);
+        System.out.println("Iguales?: "+mercedez.equals(mazda));
+        
     }
 }
