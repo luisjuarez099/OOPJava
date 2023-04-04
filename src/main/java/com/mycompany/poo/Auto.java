@@ -24,12 +24,12 @@ public class Auto {
     private int id;
     private String fabricante;
     private String modelo;
-    private String color;
+    private Color color;
     private double cilindro;
     private int capacidadGas = 40;
     private static int ultimo;
     private static int capacidadGasstatic = 10;
-    private static String colorpatente;
+    private static Color colorpatente;
 
     public static final Integer VELOCIDADMAXCARRETERA = 120;
     public static final Integer VELOCIDAD_MAX_CIUDAD = 80;
@@ -48,17 +48,17 @@ public class Auto {
         this.modelo = modelo;
     }
 
-    public Auto(String fabricante, String modelo, String color) {
+    public Auto(String fabricante, String modelo, Color color) {
         this(fabricante, modelo);
         this.color = color;
     }
 
-    public Auto(String fabricante, String modelo, String color, double cilindro) {
+    public Auto(String fabricante, String modelo, Color color, double cilindro) {
         this(fabricante, modelo, color);
         this.cilindro = cilindro;
     }
 
-    public Auto(String fabricante, String modelo, String color, double cilindro, int capacidadGas) {
+    public Auto(String fabricante, String modelo, Color color, double cilindro, int capacidadGas) {
         this(fabricante, modelo, color, cilindro);
         this.capacidadGas = capacidadGas;
     }
@@ -88,11 +88,11 @@ public class Auto {
         this.modelo = modelo;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
@@ -112,11 +112,11 @@ public class Auto {
         this.capacidadGas = capacidadGas;
     }
 
-    public static String getColorpatente() {
+    public static Color getColorpatente() {
         return colorpatente;
     }
 
-    public static void setColorpatente(String colorpatente) {
+    public static void setColorpatente(Color colorpatente) {
         //usamos nombre de la clase, NO this.
         Auto.colorpatente = colorpatente;
     }

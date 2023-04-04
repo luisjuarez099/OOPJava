@@ -11,9 +11,9 @@ public class Main {
 
     public static void main(String[] args) {
         //primer objeto
-        Auto.setColorpatente(Auto.COLOR_AMARILLO);//se aplica en todos los metodos.
-        Auto mercedez = new Auto("Mercedez", "G63",Auto.COLOR_AZUL);
-        mercedez.setColor(Auto.COLOR_AZUL);
+        Auto.setColorpatente(Color.AZUL);//se aplica en todos los metodos.
+        Auto mercedez = new Auto("Mercedez", "G63",Color.AZUL);
+        mercedez.setColor(Color.AZUL);
         mercedez.setModelo("G63");
         mercedez.setCilindro(51);
         //accedemos a los atributos static de la clase
@@ -26,8 +26,8 @@ public class Main {
         
         System.out.println("");
         //segundo objeto
-        Auto mazda=new Auto("Mazda", "CX-5", Auto.COLOR_VERDE);
-        mazda.setColor("COLOR SET: "+Auto.COLOR_VERDE);
+        Auto mazda=new Auto("Mazda", "CX-5", Color.ROJO);
+        mazda.setColor(Color.ROJO);
         mazda.setCilindro(66);
         System.out.println("DETALLE MAZDA"+mazda.detalle());
         System.out.println(mazda.acelerar(3000));
