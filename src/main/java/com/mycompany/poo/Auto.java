@@ -25,12 +25,14 @@ public class Auto {
     private String fabricante;
     private String modelo;
     private Color color;
-    private double cilindro;
-    private int capacidadGas = 40;
+    private Motor motor;
+    private Tanque tanque;
     private static int ultimo;
     private static int capacidadGasstatic = 10;
     private static Color colorpatente;
     private TipoAuto tipo;
+    private Persona propietario;
+    private Rueda[] ruedas;
 
     public static final Integer VELOCIDADMAXCARRETERA = 120;
     public static final Integer VELOCIDAD_MAX_CIUDAD = 80;
@@ -39,6 +41,14 @@ public class Auto {
     public static final String COLOR_AZUL = "Azul";
 
     //*****************constructores de la clase.
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public Auto() {
         this.id = ++ultimo;
     }
@@ -54,25 +64,27 @@ public class Auto {
         this.color = color;
     }
 
-    public Auto(String fabricante, String modelo, Color color, double cilindro) {
+    public Auto(String fabricante, String modelo, Color color, Motor motor) {
         this(fabricante, modelo, color);
-        this.cilindro = cilindro;
+        this.motor = motor;
     }
 
-    public Auto(String fabricante, String modelo, Color color, double cilindro, int capacidadGas) {
-        this(fabricante, modelo, color, cilindro);
-        this.capacidadGas = capacidadGas;
+    public Auto(String fabricante, String modelo, Color color, Motor motor, Tanque tanque) {
+        this(fabricante, modelo, color, motor);
+        this.tanque = tanque;
     }
 
-    public int getId() {
-        return id;
+    public Auto(String fabricante, String modelo, Color color, Motor motor, Tanque tanque, Persona propietario, Rueda[] ruedas) {
+        this(fabricante, modelo, color, motor, tanque);
+        this.propietario = propietario;
+        this.ruedas = ruedas;
     }
+
+    
+
+    
 
     //*****************************getter and setter
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getFabricante() {
         return fabricante;
     }
@@ -97,20 +109,20 @@ public class Auto {
         this.color = color;
     }
 
-    public double getCilindro() {
-        return cilindro;
+    public Motor getMotor() {
+        return motor;
     }
 
-    public void setCilindro(double cilindro) {
-        this.cilindro = cilindro;
+    public void setMotor(Motor motor) {
+        this.motor = motor;
     }
 
-    public int getCapacidadGas() {
-        return capacidadGas;
+    public Tanque getCapacidadGas() {
+        return tanque;
     }
 
-    public void setCapacidadGas(int capacidadGas) {
-        this.capacidadGas = capacidadGas;
+    public void setCapacidadGas(Tanque tanque) {
+        this.tanque = tanque;
     }
 
     public static Color getColorpatente() {
@@ -138,6 +150,14 @@ public class Auto {
         this.tipo = tipo;
     }
 
+    public Persona getPropietario() {
+        return propietario;
+    }
+
+    public void setPropietario(Persona propietario) {
+        this.propietario = propietario;
+    }
+
     //************************Metodos de la clase Auto
     public String detalle() {
 
@@ -147,7 +167,7 @@ public class Auto {
                 + this.color + "\n"
                 + colorpatente + "\n"
                 + this.getTipo().getDescripcion() + "\n"
-                + this.getCilindro();
+                + this.getMotor().getTipo();
 
     }
 
@@ -168,11 +188,11 @@ public class Auto {
     }
 
     public float calcularConsumo(int km, float porcentajedegas) {
-        return km / (porcentajedegas * this.capacidadGas);
+        return km / (this.tanque.getCapacidad() * porcentajedegas);
     }
 
     public float calcularConsumo(int km, int porcentajedegas) {
-        return km / (this.capacidadGas * (porcentajedegas / 100f));
+        return km / (this.tanque.getCapacidad() * (porcentajedegas / 100f));
     }
 
     public static float calcularConsumostatic(int km, int porcentajedegas) {
