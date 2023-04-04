@@ -7,7 +7,17 @@ package com.mycompany.poo;
 /**
  *
  * @author luisjc
+ *
  */
+
+/*
+ * EL objeto static le pertenece al obj no a la instancia
+ * por lo que podra compartir el mismo valor para TODAS las instancias.
+ * 
+ * Final = constante, no puede ser modificable.Debe ser para la clase(static) no para el objeto
+    se escriben en MAYUSCULAS
+    
+ **/
 public class Auto {
 
     //**********************Atributos de la clase Auto
@@ -18,9 +28,15 @@ public class Auto {
     private double cilindro;
     private int capacidadGas = 40;
     private static int ultimo;
-    private static int capacidadGasstatic=10;
-    private static String colorpatente="Naranja"; //EL objeto static le pertenece al obj no a la instancia
-    //por lo que podra compartir el mismo valor para TODAS las instancias.
+    private static int capacidadGasstatic = 10;
+    private static String colorpatente;
+
+    public static final Integer VELOCIDADMAXCARRETERA = 120;
+    public static final Integer VELOCIDAD_MAX_CIUDAD = 80;
+    public static final String COLOR_AMARILLO = "Amarillo";
+    public static final String COLOR_VERDE = "Verde";
+    public static final String COLOR_AZUL = "Azul";
+
     //*****************constructores de la clase.
     public Auto() {
         this.id = ++ultimo;
@@ -46,13 +62,13 @@ public class Auto {
         this(fabricante, modelo, color, cilindro);
         this.capacidadGas = capacidadGas;
     }
-    
+
     public int getId() {
         return id;
     }
 
     //*****************************getter and setter
-    public void setId(int id) {    
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -113,15 +129,14 @@ public class Auto {
         Auto.capacidadGasstatic = capacidadGasstatic;
     }
 
-    
     //************************Metodos de la clase Auto
     public String detalle() {
 
         return this.getFabricante() + "\n"
-                + this.id +"\n"
+                + this.id + "\n"
                 + this.modelo + "\n"
                 + this.color + "\n"
-                + colorpatente+"\n"
+                + colorpatente + "\n"
                 + this.getCilindro();
 
     }
@@ -149,24 +164,24 @@ public class Auto {
     public float calcularConsumo(int km, int porcentajedegas) {
         return km / (this.capacidadGas * (porcentajedegas / 100f));
     }
+
     public static float calcularConsumostatic(int km, int porcentajedegas) {
         return km / (Auto.capacidadGasstatic * (porcentajedegas / 100f));
     }
-    
+
     //**************************Sobreescritura de metodos
     @Override //indica al compilador que estamos sobreescribiendo un metodo de la clase padre
     public boolean equals(Object obj) {
-        if(!(obj instanceof Auto)){
+        if (!(obj instanceof Auto)) {
             return false;
         }
-        if(this == obj){
+        if (this == obj) {
             return true;
         }
         Auto a = (Auto) obj;
         return (this.getFabricante() != null && this.getFabricante().equalsIgnoreCase(a.getFabricante())); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
-    
-    
+
 }
 
 //this hace referencia un atributo de la clase de manera explicita. 

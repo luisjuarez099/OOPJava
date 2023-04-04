@@ -11,12 +11,12 @@ public class Main {
 
     public static void main(String[] args) {
         //primer objeto
-        Auto mercedez = new Auto("Mercedez", "G63");
-        mercedez.setColor("Blanco");
+        Auto.setColorpatente(Auto.COLOR_AMARILLO);//se aplica en todos los metodos.
+        Auto mercedez = new Auto("Mercedez", "G63",Auto.COLOR_AZUL);
+        mercedez.setColor(Auto.COLOR_AZUL);
         mercedez.setModelo("G63");
         mercedez.setCilindro(51);
         //accedemos a los atributos static de la clase
-        Auto.setColorpatente("Azul");
         System.out.println(mercedez.detalle());
         System.out.println(mercedez.acelerar(3000));
         System.out.println(mercedez.frenar());
@@ -26,11 +26,10 @@ public class Main {
         
         System.out.println("");
         //segundo objeto
-        Auto mazda=new Auto("Mazda", "CX-5");
-       
-        mazda.setColor("Rojo");
+        Auto mazda=new Auto("Mazda", "CX-5", Auto.COLOR_VERDE);
+        mazda.setColor("COLOR SET: "+Auto.COLOR_VERDE);
         mazda.setCilindro(66);
-        System.out.println(mazda.detalle());
+        System.out.println("DETALLE MAZDA"+mazda.detalle());
         System.out.println(mazda.acelerar(3000));
         System.out.println(mazda.frenar());
         System.out.println(mazda.acelerarFrenar(4500));
@@ -39,6 +38,8 @@ public class Main {
         System.out.println(Auto.getColorpatente());
         Auto.setCapacidadGasstatic(45);
         System.out.println(Auto.calcularConsumostatic(300, 60));
+        System.out.println("VELOCIDAD MAXIMA: "+Auto.VELOCIDADMAXCARRETERA);
+        System.out.println("VELOCIDAD MAXIMA CIUDAD: "+Auto.VELOCIDAD_MAX_CIUDAD);
         //comparacion equals
 //        System.out.println(mercedez ==  mazda);
 //        System.out.println("Iguales?: "+mercedez.equals(mazda));
