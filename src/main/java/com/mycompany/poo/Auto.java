@@ -11,17 +11,23 @@ package com.mycompany.poo;
 public class Auto {
 
     //**********************Atributos de la clase Auto
+    private int id;
     private String fabricante;
     private String modelo;
     private String color;
     private double cilindro;
     private int capacidadGas = 40;
-
+    private static int ultimo;
+    private static int capacidadGasstatic=10;
+    private static String colorpatente="Naranja"; //EL objeto static le pertenece al obj no a la instancia
+    //por lo que podra compartir el mismo valor para TODAS las instancias.
     //*****************constructores de la clase.
     public Auto() {
+        this.id = ++ultimo;
     }
 
     public Auto(String fabricante, String modelo) {
+        this();
         this.fabricante = fabricante;
         this.modelo = modelo;
     }
@@ -40,8 +46,16 @@ public class Auto {
         this(fabricante, modelo, color, cilindro);
         this.capacidadGas = capacidadGas;
     }
+    
+    public int getId() {
+        return id;
+    }
 
     //*****************************getter and setter
+    public void setId(int id) {    
+        this.id = id;
+    }
+
     public String getFabricante() {
         return fabricante;
     }
@@ -82,12 +96,32 @@ public class Auto {
         this.capacidadGas = capacidadGas;
     }
 
+    public static String getColorpatente() {
+        return colorpatente;
+    }
+
+    public static void setColorpatente(String colorpatente) {
+        //usamos nombre de la clase, NO this.
+        Auto.colorpatente = colorpatente;
+    }
+
+    public static int getCapacidadGasstatic() {
+        return capacidadGasstatic;
+    }
+
+    public static void setCapacidadGasstatic(int capacidadGasstatic) {
+        Auto.capacidadGasstatic = capacidadGasstatic;
+    }
+
+    
     //************************Metodos de la clase Auto
     public String detalle() {
 
         return this.getFabricante() + "\n"
+                + this.id +"\n"
                 + this.modelo + "\n"
                 + this.color + "\n"
+                + colorpatente+"\n"
                 + this.getCilindro();
 
     }
@@ -115,7 +149,10 @@ public class Auto {
     public float calcularConsumo(int km, int porcentajedegas) {
         return km / (this.capacidadGas * (porcentajedegas / 100f));
     }
-
+    public static float calcularConsumostatic(int km, int porcentajedegas) {
+        return km / (Auto.capacidadGasstatic * (porcentajedegas / 100f));
+    }
+    
     //**************************Sobreescritura de metodos
     @Override //indica al compilador que estamos sobreescribiendo un metodo de la clase padre
     public boolean equals(Object obj) {
